@@ -101,8 +101,8 @@
             }else if (returndata.code == "888888") {
                 alert("密码不正确");
             }else{
-                location.href = "index.html";
                 setCookie("token2",returndata.data);
+                location.href = "index.html";
             }
         }
         AJAX.get(url,data,func);

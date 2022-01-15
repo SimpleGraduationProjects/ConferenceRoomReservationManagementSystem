@@ -231,11 +231,7 @@ public class FrontController extends BaseController{
         System.out.println("$$$$$$ /front/roomShow方法的入参为：调用者id:");
         Result<List<RoomModel>> result = new Result<List<RoomModel>>();
         //判断是否登录
-        if(!checklogin(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+        
         List<RoomModel> list=roomService.show();
 
         if(list == null ) {
@@ -261,11 +257,7 @@ public class FrontController extends BaseController{
         System.out.println("$$$$$$ /front/roomShow方法的入参为：调用者id:request");
         Result<List<RoomModel>> result = new Result<List<RoomModel>>();
         //判断是否登录
-        if(!checklogin(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+        
         String usernum = getUserId(request);
         long usernumber=Long.parseLong(usernum);
         List<RoomModel> list=roomService.show1(usernumber);
@@ -318,11 +310,7 @@ public class FrontController extends BaseController{
     private Result<String> ownerAppointment(@RequestParam("theme") String theme,@RequestParam("date") String date,@RequestParam("starttime") String starttime,@RequestParam("endtime") String endtime,@RequestParam("roomId") String roomId,@RequestParam("num") int num,HttpServletRequest request) {
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+        
         String usernum = getUserId(request);
         long usernumber=Long.parseLong(usernum);
         System.out.println("$$$$$$ /front/ownerAppointment方法的入参为：调用者id:"+usernumber);
@@ -363,11 +351,7 @@ public class FrontController extends BaseController{
     private Result<String> otherAppointment(@RequestParam("theme") String theme,@RequestParam("date") String date,@RequestParam("starttime") String starttime,@RequestParam("endtime") String endtime,@RequestParam("roomId") String roomId,@RequestParam("num") int num,@RequestParam("specialneeds") String specialneeds,HttpServletRequest request){
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+        
         String usernum = getUserId(request);
         long usernumber=Long.parseLong(usernum);
         System.out.println("$$$$$$ /front/ownerAppointment方法的入参为：调用者id:"+usernumber);
@@ -409,11 +393,7 @@ public class FrontController extends BaseController{
     private Result<PageInfo<OwnAppointModel>> myAppointShow(@RequestParam("page") Integer page,HttpServletRequest request) {
         Result<PageInfo<OwnAppointModel>> result = new Result<PageInfo<OwnAppointModel>>();
         //判断是否登录
-        if(!checklogin(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+        
         String usernum = getUserId(request);
         long usernumber=Long.parseLong(usernum);
         System.out.println("$$$$$$ front/appointShow方法的入参为：调用者id:"+usernumber);
@@ -538,11 +518,7 @@ public class FrontController extends BaseController{
     private Result<String> appointDel(@RequestParam("appointId") int appointId ,HttpServletRequest request) {
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+        
         int num = conferenceService.appointDel(appointId);
 
         if(num != 0) {

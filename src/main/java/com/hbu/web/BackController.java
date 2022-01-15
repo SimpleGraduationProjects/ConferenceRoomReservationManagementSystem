@@ -117,11 +117,7 @@ public class BackController extends BaseController {
     private Result<PageInfo<TNotice>> noticeShow(HttpServletRequest request,@RequestParam("page") int page) {
         Result<PageInfo<TNotice>> result = new Result<PageInfo<TNotice>>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         PageInfo<TNotice> list=noticeService.show(page);//查出来的所有数据
         if(list == null) {
             result.setCode("888888");
@@ -142,11 +138,7 @@ public class BackController extends BaseController {
     private Result<TNotice> noticeShowDetails(@RequestParam("noticeId") int noticeId ,HttpServletRequest request) {
         Result<TNotice> result = new Result<TNotice>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         TNotice t=noticeService.showdetails(noticeId);//查出来的所有数据
 
         if(t == null) {
@@ -171,11 +163,7 @@ public class BackController extends BaseController {
         Result<List<WaitPassModel>> result = new Result<List<WaitPassModel>>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         List<WaitPassModel> list=waitPassService.showAll();
 
         if(list == null) {
@@ -230,11 +218,7 @@ public class BackController extends BaseController {
 //        System.out.println("$$$$$$ back/waitPassShow方法的入参为：调用者id:"+userid);
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num= waitPassService.waitpass1(appointmentId);
         if(num != 0) {
             result.setCode("111111");
@@ -258,11 +242,7 @@ public class BackController extends BaseController {
 //        System.out.println("$$$$$$ back/waitPassShow方法的入参为：调用者id:"+userid);
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num= waitPassService.waitnopass1(appointmentId,reason);
 
         if(num == 0) {
@@ -318,11 +298,7 @@ public class BackController extends BaseController {
        System.out.println("$$$$$$ back/roomShow方法的入参为：调用者id:+userid");
         Result<List<RoomModel>> result = new Result<List<RoomModel>>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         List<RoomModel> list=roomService.show3();
 
         if(list == null) {
@@ -347,11 +323,7 @@ public class BackController extends BaseController {
         System.out.println("$$$$$$ back/roomInsert方法的入参为：调用者id:");
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         //List<RoomModel> listmodel=new ArrayList<RoomModel>();
         RoomModel model = new RoomModel();
         model.setName(roomName);
@@ -385,11 +357,7 @@ public class BackController extends BaseController {
         System.out.println("$$$$$$ back/roomUpdate方法的入参为：调用者id:");
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         RoomModel model = new RoomModel();
         model.setId(roomId);
         model.setName(roomName);
@@ -422,11 +390,7 @@ public class BackController extends BaseController {
         System.out.println("$$$$$$ back/roomDel方法的入参为：调用者id:+userid");
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num = roomService.del(roomId);
 
         if(num != 0) {
@@ -450,11 +414,7 @@ public class BackController extends BaseController {
 //        System.out.println("$$$$$$ back/userShow方法的入参为：调用者id:"+userid);
         Result<PageInfo<TUser>> result = new Result<PageInfo<TUser>>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         PageInfo<TUser> list= userManageService.show(page);
 
         if(list == null) {
@@ -479,11 +439,7 @@ public class BackController extends BaseController {
         System.out.println("$$$$$$ back/userInsert方法的入参为：调用者id:");
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         //List<RoomModel> listmodel=new ArrayList<RoomModel>();
         TUser t = new TUser();      
         t.setNumber(number);
@@ -519,11 +475,7 @@ public class BackController extends BaseController {
         System.out.println("$$$$$$ back/userUpdate方法的入参为：调用者id:");
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         TUser t = new TUser(); 
         t.setId(userId);
         t.setNumber(number);
@@ -555,11 +507,7 @@ public class BackController extends BaseController {
         System.out.println("$$$$$$ back/userDel方法的入参为：调用者id:+userid");
         Result<String> result = new Result<String>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num = userManageService.del(userId);
 
         if(num != 0) {
@@ -583,11 +531,7 @@ public class BackController extends BaseController {
         Result<String> result = new Result<String>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num =0;
         String[] arr = ids.split(",");
         if(arr.length !=0 && arr !=null){
@@ -619,11 +563,7 @@ public class BackController extends BaseController {
         Result<String> result = new Result<String>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         TNotice t = new TNotice();
         t.setAuthorName(author);
         t.setContent(content);
@@ -657,11 +597,7 @@ public class BackController extends BaseController {
         Result<List<WaitPassModel>> result = new Result<List<WaitPassModel>>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         List<WaitPassModel> list=waitPassService.showNoPass();
 
         if(list == null) {
@@ -684,11 +620,7 @@ public class BackController extends BaseController {
         Result<List<TUser>> result = new Result<List<TUser>>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         List<TUser> list=userManageService.newuser();
 
         if(list == null) {
@@ -709,11 +641,7 @@ public class BackController extends BaseController {
         Result<String> result = new Result<String>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num= waitPassService.userpass(id);
 
         if(num == 0) {
@@ -732,11 +660,7 @@ public class BackController extends BaseController {
         Result<String> result = new Result<String>();
         //判断是否登录
         String userid = getUserId2(request);
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         int num= waitPassService.usernopass(id,reason);
 
         if(num == 0) {
@@ -758,11 +682,7 @@ public class BackController extends BaseController {
     private Result<PageInfo<TConferenceRoomAppointment>> appoints(@RequestParam("page") Integer page, HttpServletRequest request) {
         Result<PageInfo<TConferenceRoomAppointment>> result = new Result<PageInfo<TConferenceRoomAppointment>>();
         //判断是否登录
-        if(!checklogin2(request)) {
-            result.setCode("999999");
-            result.setMessage("请登录");
-            return result;
-        }
+       
         PageInfo<TConferenceRoomAppointment> list = conferenceService.appoints(page ,10);
         if(list == null) {
             result.setCode("888888");

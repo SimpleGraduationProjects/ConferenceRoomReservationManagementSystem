@@ -170,11 +170,11 @@ function add(){
     var html = '';    
 	html +='<tr class="odd">';
 	html +='<td class="roomname" id="r0" contenteditable="true"></td>';
-	html +='<td class="roomtype" id="roomty" name="type" contenteditable="true"><select><option>信息管理工程系</option><option>财政学系</option><option>会计系</option><option>工商管理系</option></select></td>';
+	html +='<td class="roomtype"  contenteditable="true"><select id="roomty"  name="type"><option>信息管理工程系</option><option>财政学系</option><option>会计系</option><option>工商管理系</option></select></td>';
 	html +='<td class="roomaddress" id="r2" contenteditable="true"></td>';
 	// html +='<td class= "time" id="r3" contenteditable="true"></td>';
 	html +='<td class="capacity" id="r4" contenteditable="true"></td>';
-    html +='<td class="status" id="status" name="status" contenteditable="true"><select><option>可使用</option><option>维修中</option></select></td>';
+    html +='<td class="status"  contenteditable="true"><select id="status" name="status"><option>可使用</option><option>维修中</option></select></td>';
 	html +='<td class= "equipment" id="r6" contenteditable="true"></td>';
 	html += ' <td ><a class="edit" onclick="save()" >保存</a></td>';
 	html +='<td></td>';
@@ -202,7 +202,12 @@ function save(){
     /**
      * /^\d+$/.test(capacity) : true,表示是数字。js正则表达式
      */
-	if( $("#r0").text().length==0 || $("#r2").text().length==0||$("#r3").text().length==0||$("#r4").text().length==0||$("#r6").text().length==0){
+	if( $("#r0").text().length==0 || $("#r2").text().length==0||$("#r4").text().length==0||$("#r6").text().length==0){
+		console.log($("#r0").text());
+		console.log($("#r2").text());
+		// console.log($("#r3").text());
+		console.log($("#r4").text());
+		console.log($("#r6").text());
 		console.log(1111)
 	}else{
 		var url =Config.host+"/back/roomInsert";
@@ -210,7 +215,6 @@ function save(){
     		"roomName" : $("#r0").text(),
     		"roomType" : roomType,
     		"address" : $("#r2").text(),
-    		"time" :$("#r3").text(),
     		"capacity" : $("#r4").text(),
     		"status" : sta,
     		"equipment" : $("#r6").text()
